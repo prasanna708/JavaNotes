@@ -1,0 +1,34 @@
+Servlets: 
+
+There are 3 ways to create a Servlet. 
+
+1. implementing Servlet Interface 
+
+2. extending GenericServlet 
+3. extending HttpServlet 
+
+
+
+
+Front end App :  Angular / React
+
+www.facebook.com/login
+
+routing:
+
+ login -> login.html Component -> captured data (u,p) -> www.facebook-be.com/login 
+ register.html 
+ messages 
+ notification
+
+
+
+
+Backend App : Java 
+
+www.facebook-be.com/login 
+
+
+login -> LoginServlet -> DB
+
+

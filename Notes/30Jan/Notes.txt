@@ -1,0 +1,50 @@
+Stereo Type Annotations: 
+
+The Stereo type Annotations used to provide the configuration by writing less  / minimum 
+code.
+
+
+These Annotations are specifically used with spring / spring boot applications. 
+
+@Component : Main Annotation that can be used to specify a java bean.
+@Repository : to add a meta data to a class which deals with database operations. 
+@Service: Used for middle ware operations 
+@Controller: acts as the mediator in the application for client requests / responses. 
+
+
+
+
+
+https://www.abc.com/login -> (@Controller) Controller class ( / login -> function)
+                          -> (@Service) Service class (function -> middleware operation)
+                          ->  (@Repository) DAO class (function -> database operation) 4
+
+
+        
+POST  http:// localhost:9191/abc/saveCustomer
+
+{
+    firstname: "abc", 
+    lastname: "xhd", 
+    email:"jsgdj"
+}
+
+
+->  CustomerController  
+
+                 public void saveCustomer(){
+                      // to call service 
+                 }
+
+
+-> CustomerService (@Service)
+
+                  public void saveCustomerService(){
+                      // to call DAO method
+                  }
+
+ -> CustomerDAO (@Repository)
+  
+                   public void saveCustomerDAOMethod(){
+                       // to make DB Operation
+                   }

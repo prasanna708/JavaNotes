@@ -1,0 +1,14 @@
+Sending Email using Spring Boot: 
+
+
+pom.xml:
+
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-mail</artifactId>
+</dependency>
+     
+
+
+https://www.geeksforgeeks.org/spring-boot-sending-email-via-smtp/ 
+

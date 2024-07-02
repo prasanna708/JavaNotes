@@ -1,0 +1,34 @@
+Spring MVC: 
+
+MVC: 
+Model - JDBC / Hibernate
+View  - JSP
+Controller - Servlets
+Architecture of Spring MVC: 
+
+
+
+packages: 
+
+ controller - controller classes
+ model - all java bean classes that maps to database tables
+ service - interfaces and classes that deal with middleware operations.
+ dao - interfaces and classes that deal with database operations. 
+
+
+ workflow: 
+
+
+ request (/login) -> web.xml -> DispatcherServlet
+                    -> spring-servlet.xml  and searches for the controller 
+                     -> controller to service 
+                     -> service to dao (database operations) and return the response to service
+                     -> dao to service 
+                     -> service to controller 
+                     -> controller to user (response) 
+
+
+         
+
+
+

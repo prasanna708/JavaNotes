@@ -1,0 +1,131 @@
+1. HashSet: 
+
+The HashSet is used to store the elements with the following conditions.
+
+* The order of the elements is unsual.
+
+* The duplicate elements are ignored.
+
+import java.util.HashSet;
+import java.util.Iterator;
+
+public class HashSetDemo {
+	public static void main(String[] args) {
+		
+		HashSet hs = new HashSet();
+		hs.add(10); // hs.add(new Integer(10));
+		hs.add("hello"); // hs.add(new String("hello"))
+		hs.add(true);
+		hs.add(100.02);
+		hs.add(true);
+		hs.add(10);
+		System.out.println(hs);
+		System.out.println(hs.contains(10));
+		System.out.println(hs.isEmpty());
+		hs.remove(10);
+		System.out.println(hs);
+		System.out.println(hs.size());
+		
+		 System.out.println("final" + hs);
+		  Iterator it = hs.iterator();
+		
+//		   System.out.println(it.hasNext());
+//		   System.out.println( "elm:"+it.next());
+//		   System.out.println(it.hasNext());
+//		   System.out.println( "elm:"+it.next());
+//		   System.out.println(it.hasNext());
+//		   System.out.println( "elm:"+it.next());
+//		   System.out.println(it.hasNext());
+		   System.out.println("--------------------------------------------------");
+		    while(it.hasNext()) {
+		    	System.out.println(it.next());
+		    }
+		    System.out.println("-------------------------------------------------");
+		      System.out.println("using for loop");
+//		   System.out.println(it.hasNext());
+		      Iterator it2 = hs.iterator();
+		 for(; it2.hasNext();) {
+			 System.out.println(it2.next());
+		 }
+		 System.out.println("--------------------------------------------");
+		 
+		 System.out.println("hs:"+hs);
+		  Object obj[] =hs.toArray();
+		   System.out.println(obj[1]);
+	}
+
+}
+
+2. LinkedHashSet:
+
+
+The LinkedHashSet is a sub class of HashSet class.
+
+* LinkedHashSet gives the order.
+
+* The duplicate elements are ignored. 
+
+import java.util.LinkedHashSet;
+
+public class LinkedHashSetDemo {
+	
+	public static void main(String[] args) {
+		
+		 LinkedHashSet lhs = new LinkedHashSet();
+		 lhs.add(100);
+		 lhs.add(200);
+		 lhs.add(true);
+		 lhs.add("hello"); 
+		 lhs.add(true);
+		 lhs.add("hello"); 
+		 System.out.println(lhs);	 
+		
+	}
+
+}
+
+TreeSet: 
+
+Collection interface is the main interface for collection Framework. 
+
+Set Interface extends Collection. 
+
+SortedSet Interface extends Set Interface. 
+
+
+
+Collection 
+|
+|
+Set  - HashSet, LinkedHashSet
+|
+|
+SortedSet - TreeSet
+
+TreeSet key points:
+
+1. TreeSet does not store different type of elements.
+
+2. Duplicate Items are ignored.
+
+3. TreeSet allows to retrive the content in ascending / descending order.
+
+
+import java.util.LinkedHashSet;
+import java.util.TreeSet;
+
+public class LinkedHashSetDemo {
+	
+	public static void main(String[] args) {
+		TreeSet ts = new TreeSet(); 
+		 ts.add(10);
+		 ts.add(20);
+		 ts.add(9);
+		 ts.add(19);
+		 ts.add(6);
+		 ts.add(2);
+		 System.out.println(ts);
+	}
+}
+
+
