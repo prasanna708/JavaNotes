@@ -1,0 +1,279 @@
+Inner Classes: 
+
+If we write a class with in another class, then it is known as inner class. 
+
+The main purpose of inner classes is to implement modular and more readable code.
+
+
+class A{
+
+           class B{ // Inner class
+
+           }
+
+}
+
+class B can be accessed only inside the class A , however if we want to access class B outside, then 
+we can access it thorugh the class A reference. 
+
+
+class Outer{
+	  int a=100; 
+	  int b=200; 
+	  
+	   void displayOuter() {
+		   System.out.println(a);
+		   System.out.println(b);
+	   }
+	   	  
+	   class Inner{
+		   
+		    int c=300; 
+		    int d= 400;
+		    
+		     void displayInner() {
+		    	 System.out.println(c);
+		    	 System.out.println(d);
+		     }
+	   }
+	   
+	   void displayInnerClassesDetailsInOuter() {
+		   
+		     Inner inner = new Inner(); 
+		      System.out.println(inner.c);
+		      System.out.println(inner.d);
+		      inner.displayInner();
+	   }
+}
+
+public class FirstDemo {
+	
+	public static void main(String[] args) {
+		Outer outer = new Outer();
+		System.out.println(outer.a);
+		System.out.println(outer.b);
+		outer.displayOuter(); 
+		Outer.Inner inner=outer.new Inner();
+		System.out.println(inner.c);
+		System.out.println(inner.d);
+		inner.displayInner();
+	}
+
+}
+
+
+
+Private inner class: 
+
+If we want the inner class to be accessible only in the outer class, then we need to make the class as private. 
+
+class Outer{
+	  int a=100; 
+	  int b=200; 
+	  
+	   void displayOuter() {
+		   System.out.println(a);
+		   System.out.println(b);
+	   }
+	   	  
+	   private class Inner{
+		   
+		    int c=300; 
+		    int d= 400;
+		    
+		     void displayInner() {
+		    	 System.out.println(c);
+		    	 System.out.println(d);
+		     }
+	   }
+	   
+	   void displayInnerClassesDetailsInOuter() {
+		   
+		     Inner inner = new Inner(); 
+		      System.out.println(inner.c);
+		      System.out.println(inner.d);
+		      inner.displayInner();
+	   }
+}
+
+public class FirstDemo {
+	
+	public static void main(String[] args) {
+		Outer outer = new Outer();
+		System.out.println(outer.a);
+		System.out.println(outer.b);
+		outer.displayInnerClassesDetailsInOuter(); 
+		
+		 outer.new Inner(); // Error
+		
+	}
+
+}
+
+
+* The inner classes can also be accessed by the sub classes of the outer class. 
+
+class Outer{
+	  int a=100; 
+	  int b=200; 
+	  
+	   void displayOuter() {
+		   System.out.println(a);
+		   System.out.println(b);
+	   }
+	    class Inner{
+		   
+		    int c=300; 
+		    int d= 400;
+		    
+		     void displayInner() {
+		    	 System.out.println(c);
+		    	 System.out.println(d);
+		     }
+	   }  
+}
+class OuterSub extends Outer{
+	
+	 void accessInnerClass() {
+		  OuterSub ob = new OuterSub();
+		 OuterSub.Inner i= ob.new Inner();
+		 System.out.println(i.c);
+	 }
+}
+
+public class FirstDemo {
+	
+	public static void main(String[] args) {
+		
+		OuterSub os = new OuterSub();
+		  os.accessInnerClass();
+		
+	}
+
+}
+
+
+example: 
+
+
+class User{
+	
+	   class Login{
+		   
+	   }
+	   class Register{
+		   
+	   }
+	   class ForgotPassword{
+		   
+	   }
+	   class Notifications{
+		   
+	   }
+	   class Profile{
+		   
+	   }
+}
+
+
+public class Client {
+	
+
+}
+
+Multithreading: 
+
+The main use of Multithreading is to provide multi tasking. 
+
+The processor creates a process for an application and the process is divided into sub processes. 
+
+Each sub process is called as thread. 
+
+Java provide Thread class to work with threads.
+
+
+There are 2 ways to create a thread. 
+
+1. extending Thread class
+2. implementing Runnable interface 
+
+
+
+// implementing Runnable interface
+class Thread1 implements Runnable{
+
+	@Override
+	public void run() {
+		System.out.println("Run method called in Thread1");
+		
+	}
+	
+}
+
+class Thread2 extends Thread{
+	@Override
+	public void run() {
+		 System.out.println("Run method called in Thread2");
+	}
+}
+
+public class ThreadCreation {
+	
+	 public static void main(String[] args) {
+		 Thread2 t2 = new Thread2();
+		 t2.start();
+		 Thread1 t1= new Thread1();
+		 
+		 Thread t12 = new Thread(t1);
+		 t12.start();
+		 
+	}
+
+}
+
+Important Methods of Thread: 
+
+
+
+
+
+class MyThread extends Thread{
+	@Override
+	public void run() {
+		System.out.println("Run method called");
+		System.out.println("Currently executing thread:"+ Thread.currentThread().getName());
+		System.out.println("Priority:"+ Thread.currentThread().getPriority());
+		System.out.println("State in Run method:"+ Thread.currentThread().getState());
+	}
+}
+public class ThreadMethods {
+  
+	 public static void main(String[] args) {
+		
+		 MyThread mt1= new MyThread();
+		 mt1.setName("First Thread");
+		 mt1.setPriority(1);
+		 System.out.println("before start:"+mt1.getState());
+		
+		 System.out.println("after start: "+ mt1.getState());
+		 
+		 MyThread mt2 = new MyThread();
+		  mt2.setName("Second Thread");
+		  mt2.setPriority(6);
+		  System.out.println("mt2 before start:"+ mt2.getState());
+		  mt2.start();
+		  mt1.start();
+		  System.out.println("mt2 after start:"+ mt2.getState());
+		 
+		 
+	}
+}
+
+
+
+
+
+
+
+
+

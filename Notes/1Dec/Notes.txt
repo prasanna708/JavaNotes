@@ -1,0 +1,158 @@
+ArrayList with User defined objects:
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.ListIterator;
+
+class Bank{
+	  String name; 
+	  String ifscCode; 
+	  long branchCode;
+	public Bank(String name, String ifscCode, long branchCode) {
+		super();
+		this.name = name;
+		this.ifscCode = ifscCode;
+		this.branchCode = branchCode;
+	}
+	public String toString() {
+		return this.name + "\t"+ this.ifscCode + "\t" + this.branchCode;
+	}
+}
+public class ArrayListDemo2 {
+	 public static void main(String[] args) {
+		 
+		 Bank b1= new Bank("ICICI", "ICICI122334", 2344334);
+		 Bank b2= new Bank("HDFC", "HDFC23343", 24444334);
+		 Bank b3= new Bank("IDBI", "IDBI324", 23443);
+		 
+		 ArrayList<Bank> al = new ArrayList<Bank>();
+		 al.add(b1);
+		 al.add(b2);
+		 al.add(b3);
+		 System.out.println(al);
+		 
+//		 System.out.println(al.reversed());
+		 
+//		 Iterator it = al.iterator();
+//		 
+//		  while(it.hasNext()) {
+//			  System.out.println(it.next());
+//		  }
+		   ListIterator li =al.listIterator(al.size());
+		   while(li.hasPrevious()) {
+			   System.out.println(li.previous());
+		   }
+	}
+}
+
+/*
+  cursor -> [ b1,  b2, b3]
+
+*/
+
+Problem Statement: 
+
+Implement Simple Banking System with the following features.
+
+1. adding customers to the bank 
+2. balance enquiry 
+3. withdraw 
+4. deposit
+
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
+class Customer{
+	int cid;
+	String name; 
+	long accountNumber; 
+	long accountBalance;
+	public Customer(int cid, String name, long accountNumber, long accountBalance) {
+		super();
+		this.cid = cid;
+		this.name = name;
+		this.accountNumber = accountNumber;
+		this.accountBalance = accountBalance;
+	}
+//	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return this.cid + "\t\t\t"+ this.name + "\t\t\t"+ this.accountNumber + "\t\t\t"+ this.accountBalance;
+	}
+	
+}
+
+
+public class ArrayListBanking {
+	
+	static ArrayList<Customer> customers = new ArrayList<Customer>();
+	
+	public static void main(String[] args) {
+		
+		  Customer c1 = new Customer(101, "naveen", 101010, 9000);
+		  Customer c2 = new Customer(102, "kiran", 101080, 19000);
+		  Customer c3 = new Customer(103, "rajesh", 101070, 2000);
+		  Customer c4 = new Customer(104, "ravi", 101040, 1000);
+		  customers.add(c1);
+		  customers.add(c2);
+		  customers.add(c3);
+		  customers.add(c4);  
+		  //displayCustomersDetails();
+		  //checkBalance(102);
+		  withdraw(104,500);
+		  checkBalance(104);
+		  withdraw(104,200);
+		  checkBalance(104);
+		  displayCustomersDetails();
+	}
+	static void displayCustomersDetails(){
+		
+		  System.out.println("CustomerId \t\t Name \t\t Account Number \t\t  Balance");
+		  System.out.println("-----------------------------------------------------------------------------------------");
+		  
+		   Iterator<Customer> it = customers.iterator();
+		   
+		   while(it.hasNext()) {
+			   Customer cx = it.next();
+			   System.out.println(cx.cid + "\t\t\t"+ cx.name + "\t\t\t"+ cx.accountNumber + "\t\t\t"+ cx.accountBalance);
+//			   System.out.println(cx.);
+//			   System.out.println(it.next());
+		   }
+	 }
+	static void checkBalance(int customerId) {
+		Iterator<Customer> it = customers.iterator();
+		   while(it.hasNext()) {
+			   Customer cx = it.next();
+			    if(customerId == cx.cid) {
+			    	System.out.println("Your current balance is :"+ cx.accountBalance);
+			    }
+//			   
+			  
+		   }
+	}
+	 static void withdraw(int customerId, long amount) {
+		 
+		 Iterator<Customer> it = customers.iterator();
+		   while(it.hasNext()) {
+			   Customer cx = it.next();
+			    if(customerId == cx.cid) {
+			    	
+			    	   int index = customers.indexOf(cx);
+			    	   System.out.println("index : " + index);
+			    	   
+			    	     long updatedAmount = cx.accountBalance - amount;
+			    	       cx.accountBalance = updatedAmount;
+			    	     
+			    	       customers.set(index, cx);
+			    	     
+			    }
+//			   
+			  
+		   }
+		 
+	 }
+
+}
+
+Task: Implement fund transfer, deposit, user details update. 

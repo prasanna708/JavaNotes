@@ -1,0 +1,96 @@
+Meta data: The data about data is known as meta data. 
+
+The high level data of actual data is considered as meta data.
+
+Ex: index page of a book.
+
+In Java, We can also use metadata to provide some information to the java compiler 
+and java virtual machine using annotations. 
+
+Java provide some predefined annotations. 
+
+Any annotation starts with @ symbol. 
+
+Ex: @override, @suppresswarnings..
+
+Some of the predefined annotations are:
+
+@Override
+@SuppressWarnings
+@Deprecated
+@SafeVarargs
+@FunctionalInterface
+@Native
+
+These annotations can be applied on variables, methods, classes.
+
+
+@Override: 
+
+
+class Super{
+	
+	 void checkIfTheUserExistsInDatabase(){
+		   System.out.println("m1()");
+	  }
+}
+
+class Sub extends Super{
+	
+	@Override // Annotation
+	 void checkIfTheUserExistsInDatabase() {
+		 System.out.println("m1() in Sub");
+	 }
+}
+
+public class BasicAnnotationsDemo {
+	
+	 public static void main(String[] args) {
+		  Sub s = new Sub();
+		  
+	}
+
+}
+
+
+
+@suppresswarnings:
+
+import java.util.ArrayList;
+
+public class BasicAnnotationsDemo {
+	
+	 public static void main(String[] args) {
+		 
+		 @SuppressWarnings("rawtypes")
+		ArrayList al = new ArrayList();
+		 System.out.println(al);
+		  
+	}
+
+}
+
+
+@FunctionalInterface: 
+
+import java.util.ArrayList;
+
+@FunctionalInterface
+interface A{
+	  void m1(); 
+//	  void m2(); 
+//	  void m3();
+}
+public class BasicAnnotationsDemo {
+	
+	 public static void main(String[] args) {
+		 @SuppressWarnings("rawtypes")
+		ArrayList al = new ArrayList();
+		 System.out.println(al);
+	}
+
+}
+
+
+
+

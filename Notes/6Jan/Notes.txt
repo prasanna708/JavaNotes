@@ -1,0 +1,19 @@
+MVC: Model View Controller 
+
+MVC is a design pattern where it follows seperation of concerns. 
+
+Hotel -> 4 Tables 
+
+ owner of hotel(Servlet / JSP) -> takes order, prepares, serves,process bill
+
+
+  M - Model - Data - Java Beans (Java Classes)
+  V - View - UI - JSP
+  C - Controller - Communication - Servlet
+
+  MVC is widely used design pattern, hence it is also considered as an Architecture.
+
+
+
+
+

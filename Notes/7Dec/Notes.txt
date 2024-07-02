@@ -1,0 +1,44 @@
+JVM: 
+
+Java Virtual Machine is an application used to run java code. 
+
+When a compiler compiles and generates the byte code, JVM reads this byte code and 
+converts them in machine code for the execution. 
+
+Compiler -> take  source code and compiles, generates the byte code. 
+
+JVM -> Takes byte code, verifies and converts in to machine code and executes it.
+
+ClassLoaderSubSystem: 
+
+The ClassLoaderSubSystem loads the .class file and checks whether the .class 
+contains the valid byte code or not. 
+
+It also checks for main method. if the main method is not found, then it will 
+throw an Exception. 
+
+Once ClassLoaderSubSystem approves that the .class file is valid, then the 
+memory allocation process gets started. 
+
+JVM uses different memory areas such as, 
+
+1. Heap :
+
+All the objects created using new keyword will go into heap area.
+
+   User user = new User(); -> Heap Area
+
+2. Method Area: It can also be called as class area and all the class related 
+resources such as static variables, static methods etc will be stored in 
+method area.
+
+
+3. Java Stack : 
+Method invocation takes place in Java Stack.
+
+4. PC Registers :  Thread maintainence
+5.Native method stack:  Any non java related programs gets invoked here.
+
+Ref: https://www.scientecheasy.com/2021/03/what-is-jvm.html/
+
+

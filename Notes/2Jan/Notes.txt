@@ -1,0 +1,135 @@
+Servlets: 
+
+There are 3 ways to create a Servlet. 
+
+1. implementing Servlet Interface:
+
+FirstServlet.java:
+
+package com.test;
+
+import java.io.IOException;
+
+import javax.servlet.Servlet;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServlet;
+
+/**
+ * Servlet implementation class FirstServlet
+ */
+public class FirstServlet implements Servlet {
+
+	@Override
+	public void init(ServletConfig config) throws ServletException {
+		// TODO Auto-generated method stub
+		
+		System.out.println("Init method called");
+		
+	}
+
+	@Override
+	public ServletConfig getServletConfig() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		
+		System.out.println("Service method called");
+		
+	}
+
+	@Override
+	public String getServletInfo() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void destroy() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}
+
+
+web.xml:
+
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+
+   <servlet>
+     <servlet-name>s1</servlet-name>
+     <servlet-class>com.test.FirstServlet</servlet-class>
+   </servlet>
+   
+     <servlet-mapping>
+        <servlet-name>s1</servlet-name>
+      <url-pattern>/fs</url-pattern>
+     </servlet-mapping>
+
+</web-app>
+
+
+
+2. extending GenericServlet :
+
+GenericServlet implements Servlet Interface which means all the methods (except service) of 
+Servlet interface are Overridden in GenericServlet.
+
+If we need only service method and the choice of other methods then we can extend 
+GenericServlet. 
+
+
+SecondServlet.java:
+
+package com.test;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.GenericServlet;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebServlet;
+
+@WebServlet("/second")
+public class SecondServlet extends GenericServlet {
+
+	@Override
+	public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
+
+         
+		PrintWriter pw =  res.getWriter();
+		
+		pw.print("<html><head></head> <body> <h1 style='color:red'>I am coming from SecondServlet!</h1></body></html>");
+		
+	}
+
+}
+
+
+3. extending HttpServlet: 
+
+HttpServlet extends GenericServlet. 
+
+Since HttpServlet is prepared based on HTTP Protocol, hence it provides different 
+types of http methods such as get, post...
+
+
+
+
+
+
+
+

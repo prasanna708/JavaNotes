@@ -1,0 +1,257 @@
+List:  ArrayList and Vector 
+
+ArrayList and Vector are same with one small difference. 
+
+
+ArrayList is not thread safe which means the resources ( methods)  can be accessed by 
+multiple threads simultaneously.
+
+Vector is thread safe which means the resources(methods) can be accessed by one thread at a time. 
+
+
+Map: 
+
+Map Interface provides a way to store the data in key-value pair format. 
+
+The keys must be unique and can be any type. 
+
+Duplicate keys will overide the previous value with Latest value. 
+
+The Implementation classes of Map interface are HashMap and LinkedHashMap. 
+
+HashMap: 
+
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Set;
+
+public class HashMapDemo {
+	
+	public static void main(String[] args) {
+		
+		 HashMap hm = new HashMap(); 
+		 hm.put(101, "hello");
+		 hm.put(900, "hey");
+		 hm.put(987, "how");
+		 hm.put(1, "Are");
+		 hm.put(4, "you");
+		 hm.put(1, "john!");
+		 System.out.println(hm);
+		 System.out.println(hm.get(101));
+		 System.out.println(hm.get(102));
+		 Set keys = hm.keySet();
+		 System.out.println("----------------------------------------------");
+		  Iterator keysIterator = keys.iterator();
+		  
+		   while(keysIterator.hasNext()) {
+			   System.out.println(keysIterator.next());
+			  
+		   }
+		   System.out.println("----------------------------------------------");
+		
+		    System.out.println("Values");
+		    Collection values = hm.values();
+		    
+		    Iterator valuesIterator = values.iterator();
+			   while(valuesIterator.hasNext()) {
+				   System.out.println(valuesIterator.next());
+			   }
+			   System.out.println("----------------------------------------------");
+			
+		    
+	}
+
+}
+
+
+Key Points: 
+
+1. HashMap does not gurantee the order of the entries. 
+2. It stores data in key-value pair (entry)
+3. Keys must be unique and values can be duplicated. 
+4. HashMap provides different methods to perform operations such as keySet(), values(), get()...
+
+
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map.Entry;
+import java.util.Set;
+
+public class HashMapDemo {
+	
+	public static void main(String[] args) {
+		
+		 HashMap hm = new HashMap(); 
+		 hm.put(101, "hello");
+		 hm.put(900, "hey");
+		 hm.put(987, "how");
+		 hm.put(1, "Are");
+		 hm.put(4, "you");
+		 hm.put(1, "john!");
+		 System.out.println(hm);
+		 System.out.println(hm.get(101));
+		 System.out.println(hm.get(102));
+		 Set<Entry> set= hm.entrySet();
+		 Iterator it =set.iterator();
+		  while(it.hasNext()) {
+			   System.out.println(it.next());
+		  }
+	}
+
+}
+ 
+
+LinkedHashMap: It is a sub class of HashMap 
+
+
+Key Points: 
+
+1. HashMap  gurantees the order of the entries. 
+2. It stores data in key-value pair (entry)
+3. Keys must be unique and values can be duplicated. 
+4. HashMap provides different methods to perform operations such as keySet(), values(), get()...
+
+ LinkedHashMap hm = new LinkedHashMap(); 
+		 hm.put(101, "hello");
+		 hm.put(900, "hey");
+		 hm.put(987, "how");
+		 hm.put(1, "Are");
+		 hm.put(4, "you");
+		 hm.put(1, "john!");
+
+{101=hello, 900=hey, 987=how, 1=john!, 4=you}
+
+
+TreeMap: 
+
+TreeMap stores the data in key value pair.
+
+TreeMap does not gurantee the order of the elements. TreeMap arranges the elements in ascending order(keys) by default. 
+
+
+import java.util.TreeMap;
+
+public class TreeMapDemo {
+
+	public static void main(String[] args) {
+		TreeMap treemap = new TreeMap();
+		
+		treemap.put(90, "ram");
+		treemap.put(20, "naveen");
+		treemap.put(30, "kiran");
+		treemap.put(190, "rajesh");
+		treemap.put(60, "ravi");
+		treemap.put(5, "ravi");
+		
+		System.out.println(treemap);
+		
+		System.out.println(treemap.descendingMap());
+	}
+}
+
+
+Collections: This class provides more utility functions along with standard ones. 
+
+
+Problem Statement: 
+
+Implement Employee Management System with the following features. 
+1. add employee 
+2. update employee 
+3. delete employee 
+4. list all employees
+
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Set;
+
+class Employee{
+	 String name; 
+	 String project;
+	 String isOnBench;
+	 int yearsOfExperience;
+	public Employee(String name, String project, String isOnBench, int yearsOfExperience) {
+		super();
+		this.name = name;
+		this.project = project;
+		this.isOnBench = isOnBench;
+		this.yearsOfExperience = yearsOfExperience;
+	}
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return  this.name + "\t"+ this.project + "\t"+ this.isOnBench+ "\t"+ this.yearsOfExperience;
+ 	}
+}
+
+public class EmployeesMapDemo {
+	
+	static HashMap<Integer,Employee> hm = new HashMap<Integer,Employee>();
+	 
+	static int counter= 0;
+	
+	public static void main(String[] args) {
+		 
+		Employee e1= new Employee("kiran", "CRM","no" , 4);
+		Employee e2= new Employee("naveen", "-","yes" , 7);
+		Employee e3= new Employee("rajesh", "-","yes" , 2);
+		Employee e4= new Employee("john", "LMS","no" , 2);
+		Employee e5= new Employee("krishna", "CRM","no" , 2);
+		 
+		
+		  addEmployee(e4);
+		  addEmployee(e2);
+		  addEmployee(e3);
+		  addEmployee(e5);
+		  addEmployee(e1);
+		 
+		  listEmployees();
+		  deleteEmployee(1);
+		  System.out.println("----------------------------------");
+		  listEmployees();
+		  
+		  e2.project="LMS";
+		  e2.isOnBench = "no";
+		  updateEmployee(2,e2);
+		  
+		  System.out.println("-------------------------------------");
+		   listEmployees();
+	}
+	static void addEmployee(Employee employee) {
+		hm.put(++counter, employee);
+	}
+	static void listEmployees() {
+		 Set set = hm.entrySet();
+		    Iterator it = set.iterator();
+		    while(it.hasNext()) {
+		    	 System.out.println(it.next());
+		    }
+	}
+	static void deleteEmployee(int key) {
+		 hm.remove(key);
+	}
+	static void updateEmployee( int key,Employee employee) {
+		 hm.put(key, employee);
+	}
+	
+}
+
+
+Task: 
+
+1. Get a specific employee details
+
+2. Make the application interactive by providing the options.
+
+            1. Add an employee 
+            2. remove an employee 
+            3. update employee 
+            4. list all employees 
+            5. exit
+
+
+

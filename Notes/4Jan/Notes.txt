@@ -1,0 +1,18 @@
+Challenges with Servlet: 
+
+1. Writing HTML Code in  java code becomes difficult when we have huge html 
+code. 
+
+2. Since the HTML Code is served from a java file, server needs time to 
+respond back to the browser which affects the overall application performance.
+
+
+JSP: java Server Pages 
+
+Java Code is written in HTML Code. 
+
+.jsp: 
+
+We use scriplets to write java code. 
+
+
