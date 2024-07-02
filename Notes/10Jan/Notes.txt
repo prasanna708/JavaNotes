@@ -1,0 +1,41 @@
+Drawbacks of JDBC: 
+
+1. Moving from One Database to Another Database is quite difficult since we need to 
+change the queries.
+
+2. Chances of issues with the query. 
+
+
+ORM: 
+
+ORM stands for Object Relation Mapping
+
+Tables -> Java Classes 
+Columns -> variables 
+rows -> objects
+
+
+Since we are not dealing with database directly, instead we use Java Classes to 
+interact with Database, hence shifting from one database to another database is 
+just a configuration.
+
+ORM is responsible to provide seamless shift from one database to another 
+database with configuration. 
+
+ORM supports in writing queries based on the methods we use. 
+
+
+Hibernate:
+
+1. Add dependencies to POM.XML 
+
+2. Add the required configuration in hibernate.cfg.xml 
+
+3. Create Model / Entity Classes 
+
+4. Get the Session Factory Object 
+
+5. Open Session, perform the operation and close the session.
+
+
+

@@ -1,0 +1,221 @@
+Abstract classes: 
+
+When a class implements an interface, if the class cannot implement all the methods of an interface, then 
+the class must be declared as abstract and which ever the umimplemented methods of the interface should be 
+added as abstract methods. 
+
+interface A2{
+	 void m1();
+	 void m2();
+	 void m3();
+	 void m4();
+}
+
+abstract class A2Impl implements A2{
+	
+	public void m1() {
+		   System.out.println("m1() called");
+	 }
+	public  void m2() {
+		 System.out.println("m2() called");
+	 }
+	
+	public abstract void m3();
+	public abstract void m4();
+}
+
+class A2ImplHelper extends A2Impl{
+
+	
+	public void m3() {
+		System.out.println("m3 called");
+		
+	}
+
+	
+	public void m4() {
+		System.out.println("m4 called");
+		
+	}
+	
+	
+}
+
+public class AbstractClassDemo {
+
+	public static void main(String[] args) {
+		A2 a=new A2ImplHelper();
+		a.m1();
+		a.m2();
+		a.m3();
+		
+	}
+}
+
+
+Key points: 
+
+1. If the implementation class does not want to provide implementation for all the methods of the 
+interface, then it shoould be declared as abstract.
+
+2. For an Abstract class, we cannot create an object because abstract classes have abstract methods. 
+
+3. Even though we cannot create an object for an abstract class but still we can have constructor in the abstract 
+class.
+
+
+
+interface A3{
+	 void m1();
+	 void m2();
+}
+
+abstract class A3Impl implements A3{
+	  int a;
+	  int b;
+	public A3Impl(){
+		 System.out.println("A3Impl constructor");
+	}
+	  public void m1() {
+		  System.out.println("m1()");
+	  }
+}
+class A3ImplHelper extends A3Impl {
+	  public A3ImplHelper() {
+		  
+		System.out.println(" A3ImplHelper Constructor called!");
+	}
+	public void m2() {
+		// TODO Auto-generated method stub
+
+	}
+}
+
+public class AbstractClassConstructorDemo {
+
+	public static void main(String[] args) {
+		
+		  new A3ImplHelper();
+	}
+}
+
+Encapsulation: 
+
+It is the process where the data and its functionality is combined together into a single unit.
+
+exmaple: 
+
+   class classname{
+     // variables  -> data
+     // methods  -> functionality
+   }
+
+
+   Advantages: 
+
+   1. Code Reusability -> Inheritance 
+   2. Code Modularity 
+   3. Security -> Access Modifiers
+
+Inheritance(IS-A):  It follows IS-A relationship. 
+
+class Employee{
+
+}
+
+class Admin extends Employee{
+
+}
+
+class SecurityGuy extends Employee{
+
+}
+
+Aggregation(HAS-A):  Aggregation follows HAS-A relationship. 
+
+
+class EmailSender{
+
+
+}
+
+class SMSSender{
+
+}
+
+class Transaction {
+
+  EmailSender emailSender = new EmailSender();
+  SMSSender smsSender = new SMSSender();
+
+}
+
+
+example: 
+
+
+class EmailSender{
+
+	   public void sendEmail() {
+		   System.out.println("Email Sent");
+	   }
+
+}
+
+class SMSSender{
+
+	 public void sendSMS() {
+		   System.out.println("SMS Sent");
+	   }
+}
+
+class WhatsAppSender{
+	 public void sendWhatsAppMessage() {
+		   System.out.println(" whatsapp message Sent");
+	   }
+}
+
+class Transaction {
+  EmailSender emailSender = new EmailSender();
+  SMSSender smsSender = new SMSSender();
+  WhatsAppSender whatsAppSender = new WhatsAppSender();
+  
+     public void transact() {
+    	 System.out.println("Transaction is completed");
+    	 emailSender.sendEmail();
+    	 smsSender.sendSMS();
+    	 whatsAppSender.sendWhatsAppMessage();
+     }
+
+}
+
+public class HASADEMO {
+public static void main(String[] args) {
+	
+	 Transaction tx = new Transaction();
+	 tx.transact();
+}
+	
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

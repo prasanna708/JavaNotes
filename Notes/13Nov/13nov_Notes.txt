@@ -1,0 +1,204 @@
+Method Overiding: 
+
+If we are not satisfied with the implementation provided by the super class for a method, then the sub class 
+can take the method signature and can provide its own implementation. 
+
+
+ class A1{
+	 
+	void m1(){
+		  System.out.println("m1() called");
+	 }
+	void m2() {
+		System.out.println("m2() called");
+	}
+ }
+ 
+ class B1 extends A1{
+	  void m2() { // Method is overidden
+			  System.out.println("m2() called in B1");
+		} 
+ }
+public class MethodOveridingDemo {
+	
+	public static void main(String[] args) {
+		
+		 B1 b1= new B1();
+		   b1.m1();
+		   b1.m2();
+	}
+
+}
+
+
+Even though we write m2() method in B1 class, still the owner of the m2() method is A1 class only. 
+
+
+
+class Prodct{
+	
+	  String pid = "101";
+	  String name = "Product 1"; 
+	  long price = 1200; 
+	  
+	 void  getProductDetails(){
+		    System.out.println(pid + "\t"+ name + "\t"+ price);  
+	  }
+	  
+}
+
+class Amazon extends Prodct{
+	
+	void  getProductDetails(){
+		    price= 800;
+	    System.out.println(pid + "\t"+ name + "\t"+ price);  
+  }
+	
+}
+
+public class MethodOveridingExample {
+	
+	public static void main(String[] args) {
+		
+		Amazon amazon = new Amazon();
+		amazon.getProductDetails();
+	}
+
+}
+
+Abstraction: 
+
+Abstraction is the process of providing only the required details. 
+
+In this world, everything is abstracted.
+
+The Abstraction allows to provide a set of guidelines for the implementation. 
+
+We implement abstraction using interfaces. 
+
+Interface: 
+syntax: 
+   interface InterfaceName{
+             // abstract methods
+   }
+
+   
+
+interface X{
+	 void m1();
+	 void m2();
+}
+
+class XImpl implements X{
+	public void m1() {
+		System.out.println("m1() called");
+		
+	}
+	public void m2() {
+		 System.out.println("m2() called");
+		
+	}
+}
+public class InterfaceDemo {
+
+	 public static void main(String[] args) {
+		
+		 X x =  new XImpl();
+		 x.m1();
+		 x.m2();
+	}
+}
+
+
+Key points: 
+
+1. An interface contains only abstract methods and final variables (constant). 
+
+2. If a class provides implementation for an interface, then it should provide the implementation 
+for all the abstract methods of the interface. 
+
+3.  We cannot create an object for an interface because all the methods of interface are 
+abstract. 
+
+4. In case, if a class cannot provide implementation for any method, then that class should be made as 
+abstract class.
+
+Problem Statement:  Implement Abstraction feature for ac remote. 
+
+
+  interface ACRemote{
+	    void turnonOff();
+	    void increaseTemp();
+	    void decreaseTemp();
+	    void swingMode();
+	    }
+ 
+  class MotherBoard implements ACRemote{
+	  int currentTemperature = 26;
+	  int lowestTemp = 16;
+	  int highestTemp = 32;
+	 boolean currentACStatus= false;
+	public void turnonOff() {
+		  if(this.currentACStatus == false) {
+			   // Connect to the Device and perform the operation
+			  this.currentACStatus = true;
+			  System.out.println("AC turned on!");
+		  }
+		  else {
+			  this.currentACStatus = false;
+			  System.out.println("AC turned off!");
+		  }	
+	}
+
+	public void increaseTemp() {
+		
+		  if(this.currentACStatus == true) {
+			      
+			   if(currentTemperature > lowestTemp && currentTemperature < highestTemp) {
+				       this.currentTemperature ++;
+				       System.out.println("Temp Now: "+ this.currentTemperature);
+			   }
+		  }
+		  else{
+			   System.out.println("Please turn on the AC First!");
+		  }
+		
+	}
+	public void decreaseTemp() {
+		// TODO Auto-generated method stub
+		
+	}
+	public void swingMode() {
+		// TODO Auto-generated method stub
+		
+	}
+	  
+  }
+
+public class ACRemoteDemo {
+public static void main(String[] args) {
+	
+	 ACRemote remote = new MotherBoard();
+
+	    remote.increaseTemp();
+	    remote.turnonOff();
+	    remote.increaseTemp();
+	    remote.increaseTemp();
+	    remote.increaseTemp();
+	    remote.increaseTemp();
+	    remote.increaseTemp();
+	    remote.increaseTemp();
+	    remote.increaseTemp();
+	    remote.increaseTemp();
+	    remote.increaseTemp();
+	    remote.increaseTemp();
+	    remote.increaseTemp();
+	    remote.increaseTemp();
+	    remote.increaseTemp();
+	    remote.increaseTemp();
+	    remote.increaseTemp();
+	 
+	
+}
+}
+

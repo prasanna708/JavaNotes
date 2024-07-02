@@ -1,0 +1,16 @@
+MicroServices:
+
+
+App -> 
+
+f1 = login
+f2 = register
+f3 =  add account
+f4 = transfer fund
+f5 = check balance
+f6 =  apply for personal loan - error 
+
+
+MicroServices are smaller services(application) that gets deployed independently so that 
+each service does not depend on other services. 
+

@@ -1,0 +1,16 @@
+Java -> 3 Categories
+
+1. Java SE - Desktop Apps 
+2. Java EE - Web and Enterprise Apps 
+3. Java ME - Mobile Apps
+
+
+As part of Java EE, Servlets were introduced to develop web applications. 
+
+A Servlet is a java class that runs on a web server and provides resources over 
+the web. 
+
+Environment Set up: 
+
+Download apache tomcat server. 
+

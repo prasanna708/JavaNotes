@@ -1,0 +1,66 @@
+JDBC:  Java Database Connectivity. 
+
+It is the process where Java Connects with Database through code to perform DBMS. 
+
+  Java - Programming Language
+   |
+   |
+   Driver ( A class that helps in interaction between Java and Database) - .jar file
+   |
+   |
+  Database (MYSQL) -  Server
+
+
+  MYSQL:  USING SQL( Structured Query Language) we can interact with database.
+
+
+  SQL Queries:
+
+  create database 7am;
+use 7am;
+
+create table users(userid int, username varchar(100),email varchar(200));
+
+insert into users values(101, 'kiran', 'kiran@gmail.com');
+insert into users values(102, 'naveen', 'naveen@gmail.com');
+insert into users values(103, 'uday', 'uday@gmail.com');
+select * from users;
+update users SET email='a@gmail.com' where userid=101;
+delete from users where userid=102;
+SET SQL_SAFE_UPDATES = 0;
+rollback;
+commit;
+SET autocommit=0;
+
+
+Connecting Java Application with MYSQL Database: 
+
+1. Load the Driver. 
+2. Register and get the connection to the database by passing url, username, password. 
+3. Create Statement Object and start writing queries. 
+4. send the queries to database 
+5. handle the response 
+6. close the connection 
+
+
+Environment Set up: 
+
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

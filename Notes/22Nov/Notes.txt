@@ -1,0 +1,54 @@
+Finally Block: 
+
+finally block is followed by try or catch blocks.
+
+try{
+
+}
+catch(Exception e){
+
+}
+finally{
+
+}
+
+
+try{
+
+}
+finally{
+
+}
+
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+
+public class FinallyDemo {
+
+	 public static void main(String[] args)  {
+		 FileReader fr= null;
+		  try {
+			 fr= new FileReader("C:\\Users\\SaiKumarPabboju\\Desktop\\javaworkspace\\ExceptionHandling\\src\\CheckedExceptionDemo1.java");
+		} catch (Exception e) {
+			System.out.println("catch:" + e);
+			// Log info into Database
+			
+		}
+		  finally {
+			  System.out.println("inside finally");
+			  try {
+			  fr.close();
+			  }
+			  catch(Exception e) {
+				  System.out.println("finally exception:"+e);
+			  }
+			  System.out.println("fr closed");
+		  }
+		  System.out.println("Statement 1");
+		  System.out.println("Statement 2");
+		 
+	}
+}
+
+

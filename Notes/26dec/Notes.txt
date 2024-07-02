@@ -1,0 +1,15 @@
+Maven: 
+
+Maven is a build management tool which is used to build and deploy applications.
+
+The main issue with java is with jar files ( dependency management). 
+
+Maven provides dependency management out of the box feature which takes care 
+of internal dependency management and helps developers to focus on acceleration 
+of application development. 
+
+Maven maintains a repository called maven repository.
+
+In maven repository, it provides different types of jar files in the form 
+artifacts. 
+

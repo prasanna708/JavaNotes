@@ -1,0 +1,151 @@
+Arrays: 
+
+An Array is a linear data structure that stores the data in the sequential order.
+
+Syntax: 
+
+datatype arrayname[]= {};
+
+
+public class ArrayDemo {
+	public static void main(String[] args) {
+		
+		String users[]= {"kiran", "rajesh","naveen"};
+		
+		System.out.println(users[0]);
+		
+		System.out.println(users[2]);
+		
+		//System.out.println(users[3]);
+		
+		users[2]= "john"; 
+		
+		System.out.println(users[2]);
+		
+		users[3] ="Mike";
+		System.out.println(users[3]);
+		
+		
+	}
+
+}
+
+
+Key Points: 
+
+1. In Java, Arrays are static which means once we create an Array, we cannot extend it. 
+
+2. We can define size of the array at the time of the creation.
+
+3. Once an Array is created then we cannot provide a size to it. 
+
+4. Java did not provide any predefined functions that helps in the array operations such as adding, removing, 
+updating elements etc. 
+
+5. We can store only one type of values in the array.
+
+Hence if have the clarity on how many elements we can store then we can use Arrays.
+
+To Overcome these drawbacks, Java provided ArrayList in Collection Framework.
+
+ArrayList works with objects which means even if we want to store the primitive types, we should treat them 
+as objects.
+
+example:
+
+import java.util.ArrayList;
+
+public class ArrayListDemo {
+	
+	public static void main(String[] args) {
+		
+		ArrayList al = new ArrayList();
+		al.add(100);
+		al.add(500);
+		al.add("kiran");
+		al.add(true);
+		al.add(false);
+		al.add("xyz");
+		System.out.println(al);
+		System.out.println(al.contains("xyz"));
+		System.out.println(al.contains("abc"));
+		al.add(1, 200);
+		System.out.println(al);
+		
+
+		
+	}
+
+}
+
+String:
+
+A String is a Collection of characters.
+
+syntax: 
+
+String var_name = " ";
+
+In Java, Strings are immutable which means once we create a String, we cannot modify it which means we cannot 
+rewrite the string value instead we can reassign.
+
+String s1 = "digital"; 
+		System.out.println(s1);
+		String s2 = "lync";
+		s1 =  s1.concat(s2); 
+		  System.out.println(s1);
+
+
+String s1 = "digital"; 
+		System.out.println(s1);
+		String s2 = "lync";
+		s1 =  s1.concat(s2); 
+		System.out.println(s1);
+		System.out.println(s1.charAt(0));
+		System.out.println(s1.equals("digitallync"));
+		System.out.println(s1.equalsIgnoreCase("Digitallync"));
+		System.out.println(s1.isEmpty());
+
+When we create a String using new keyword, then it will be stored in heap area.
+
+When we create a String without using new keyword, then it will be stored in string constant pool. 
+
+
+
+public class StringsDemo {
+	
+	public static void main(String[] args) {
+		
+		String s1 = new String("hello"); 
+		String s2 = new String("hello");
+		System.out.println(s1.equals(s2));
+		System.out.println(s1 == s2); // addresses are checked 
+		String s3 = s2; 
+		System.out.println(s3 == s2);
+		String s4="digital";
+		String s5="digital";
+		System.out.println(s4 == s5);
+		s4 = s4.concat("lync");
+		System.out.println(s4 == s5); // ?
+		String s6="digital";
+		System.out.println(s5 == s6);
+		String s7="digitallync";
+		System.out.println(s7 == s4);
+		System.out.println(s7);
+		System.out.println(s4);
+		s5 = s5.concat("lync");
+		String s8="digital";
+		String s9="digitallync";
+		System.out.println(s5 == s8);
+		System.out.println(s9 == s4);
+	}
+}
+/*
+      s4 -> 104x -> "digitallync" 
+      s5 -> 101x -> "digital" 
+      s6 -> 101x -> "digital"
+      s7-> 104x -> "digitallync"
+      
+ *
+ */
+

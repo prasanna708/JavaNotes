@@ -1,0 +1,46 @@
+Spring Framework: 
+
+Spring Framework is used to develop Enterprise Web Applications with the help 
+of IOC Container. 
+
+As Part of Spring Framework, it provides multiple modules such as 
+
+Spring Core 
+Spring AOP 
+Spring MVC 
+.
+.
+.
+
+
+Spring Core: 
+
+Dependency Injection: 
+
+
+interface Address{
+
+}
+
+class AddImpl1 implements Address{
+
+}
+
+class AddImpl2 implements Address{
+    
+}
+
+class Employee{
+ 
+    private Address address;
+
+}
+
+Dependency Injection is the process of providing an object at runtime. 
+
+To Implement Dependency Injection, we need to use IOC Container.
+
+
+
+
+

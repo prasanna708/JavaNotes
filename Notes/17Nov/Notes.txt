@@ -1,0 +1,77 @@
+Packages: 
+
+Jar file -> Distribution file -> execution of the application  
+
+Jar file contains  Packages. 
+
+A Package is a collection of classes , interfaces, enums etc combined under one unit based 
+on the functionality / module. 
+
+example: 
+
+java.lang -> consists of basic classes and interfaces to work on java applications. 
+
+java.io -> to perform input and output operations. 
+
+java.net -> to work on network apps. 
+
+It is important to classify the different classes and interfaces into different 
+packages. 
+
+we need to follow the naming conventions w.r.t packages. 
+
+Example: 
+
+Implement social networking application using java ( create packages and their respective classes / interfaces)
+
+
+user  
+
+     -> account -> Login, SignUp, ForgotPassword...
+     -> features -> post, sendmessages...
+   
+
+admin 
+
+      -> account management
+       -> user management 
+       -> post management 
+
+
+code: 
+
+package com.wipro.socialnet.user.account;
+
+public interface SignUp {
+	public void signUpUser(User user);	
+}
+
+
+package com.wipro.socialnet.user.features;
+
+public interface Account {
+
+	 public void updateFirstName();
+	 public void updateSurname();
+	 public void updateEmail();
+	 public void changePassword();
+}
+
+
+package com.wirpo.socialnet.main;
+
+import com.wipro.socialnet.user.account.SignUp;
+import com.wipro.socialnet.user.account.SignUpImplementor;
+import com.wipro.socialnet.user.account.User;
+
+public class Client {
+	
+	public static void main(String[] args) {
+		
+		SignUp signup = new SignUpImplementor();
+		signup.signUpUser(new User(null, null, null));
+	}
+
+}
+
+

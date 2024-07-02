@@ -1,0 +1,31 @@
+Caching: 
+
+Cache is a temporary memory where we can store some data. 
+
+Hibernate caching is the process where Hibernate uses a cache to store some data which 
+could be accessed by multiple users. instead of making the same query to the 
+database multiple times, it access the data from the cache which aviods making multiple 
+same calls (queries) to the database.
+
+Hibernate provides 2 types of cache.
+
+1.First Level Cache: 
+
+This is the default cache, which is maintained at session level. which means, 
+when the same user requests for the same data, then hibernate fetches that 
+data from the cache. 
+
+2. Second Level Cache: 
+
+This is a configuration based cache and it is maintained at session factory level.
+
+Session Factory provides different sessions for different users, hence if any data 
+is accessed by some user, it will be cached and if any other user requests for the 
+same data, then instead of making a request to DB, Hibernate fetches the data from 
+the cache. 
+
+
+
+
+
+

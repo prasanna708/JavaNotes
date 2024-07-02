@@ -1,0 +1,145 @@
+Custom Exceptions: 
+
+At any point of time, if we want to create our own exception, then we can use the following syntax. 
+
+
+for checked exceptions:
+
+class CustomException extends Exception{
+
+         CustomException(String str){
+              super(str);
+         }
+
+}
+
+
+example: 
+
+package com.digitallync.lms;
+
+class PasswordValidator extends Exception{
+	
+	public PasswordValidator(String message) {
+		// TODO Auto-generated constructor stub
+		  super(message);
+	}
+}
+
+class User{
+	     void authenticate(String username,String password)throws PasswordValidator {
+	    	  if(password.length() < 8) {
+	    		  throw new PasswordValidator("Password should be atleast 8 characters");
+	    	  }
+	     }
+	     
+}
+
+public class CustomExceptionDemo {
+
+	 public static void main(String[] args)  {
+		User user = new User();
+		try {
+			user.authenticate("abc", "xyz");
+		}
+		catch(PasswordValidator exception) {
+			System.out.println("exception:"+exception);
+		}
+		 System.out.println("After Validation");
+		 
+	}
+}
+
+for unchecked exceptions: 
+
+
+class CustomException extends RuntimeException{
+
+         CustomException(String str){
+              super(str);
+         }
+
+}
+
+
+package com.digitallync.lms;
+
+class PasswordValidator extends RuntimeException{
+	
+	public PasswordValidator(String message) {
+		// TODO Auto-generated constructor stub
+		  super(message);
+	}
+}
+
+class User{
+	     void authenticate(String username,String password) {
+	    	  if(password.length() < 8) {
+	    		  throw new PasswordValidator("Password should be atleast 8 characters");
+	    	  }
+	     }
+	     
+}
+
+public class CustomExceptionDemo {
+
+	 public static void main(String[] args)  {
+		User user = new User();	
+		try {
+			user.authenticate("abc", "xyz");
+		}
+		catch(PasswordValidator exception) {
+			System.out.println("exception:"+exception);
+		}
+		 System.out.println("After Validation");
+		 
+	}
+}
+
+Regex: 
+
+Regular Expressions are used to create patterns for searches.
+
+Pattern pattern=Pattern.compile("s.l");
+		Matcher matcher=pattern.matcher("s@l");
+		boolean result = matcher.matches();
+		System.out.println(result);
+		System.out.println(Pattern.compile("abc").matcher("abc").matches());
+		System.out.println(Pattern.matches("s[abc]m", "sam"));
+
+
+Problem Statement: 
+
+Implement a regular expression pattern for the following requirement. 
+
+  MDP123456788HYD
+
+  import java.util.regex.Pattern;
+
+public class RegExDemo2 {
+
+	public static void main(String[] args) {
+		
+		System.out.println(Pattern.matches("MDP[0-9]+HYD", "MDP12345HYD"));
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

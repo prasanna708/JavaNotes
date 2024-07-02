@@ -1,0 +1,236 @@
+Inheritance Types: 
+
+1. Single : 
+
+ In Single Inheritance, A class extends only one class. 
+
+ The class that gets extended is called as super / parent class.
+
+ The class that inherits other class is known as sub / child class. 
+
+ class A{
+
+ }
+
+ class B extends A{
+
+ }
+
+ In the above, class A is considered as Super class and class B is considered as sub class.
+
+
+class Calculator{
+	
+	     public void add(int a, int b) {
+	    	 System.out.println(a+b);
+	     }
+	     public void sub(int a,int b) {
+	    	 System.out.println(a-b);
+	     }
+}
+class ScientificCalculator extends Calculator{
+	
+	 public void square(int a) {
+		 System.out.println(a*a);
+	 }
+	 public void cube(int a) {
+		 System.out.println(a*a*a);
+	 }
+	
+}
+
+public class SingleInheritanceDemo {
+	public static void main(String[] args) {
+		
+		ScientificCalculator sc= new ScientificCalculator(); 
+		sc.cube(3);
+		sc.add(10, 20);
+		sc.sub(90, 2);
+	}
+
+}
+
+2. Multiple: 
+
+If a class extends more than one class, then it is multiple. 
+
+class A{
+
+       a=100;
+}
+class B{
+         a =200;
+}
+class C{
+        a =300;
+}
+class D extends A,B,C {
+ 
+  syso(a);
+}
+
+3. Hierachical : 
+
+If a class is being extended by multiple sub classes. 
+
+ class A{
+
+ }
+ class B extends A {
+
+ }
+
+ class C extends A{
+
+ }
+ class D extends A{
+
+ }
+
+4. Multi-level: 
+
+ A class can be a sub class and also a super class in multi-level inheritance.
+
+ class A{
+
+ }
+ class B extends A{
+
+ }
+ class C extends B{
+
+ }
+
+
+5. Hybrid: 
+
+Any two inheritances combination is considered as hybrid inheritance. 
+
+
+Constructor: 
+
+A Constructor is a special method which is used to create / construct an object of 
+a class. 
+
+Constructor name is same as class name. 
+
+syntax: 
+
+  class Employee{
+
+        Employee(){
+             // code
+        }
+
+  }
+
+  
+
+class Product{
+	
+	 Product(){
+		 System.out.println("Constructor called");
+	 }
+	int pid;
+	String name;
+	int price;
+}
+
+public class ConstructorDemo {
+
+	   public static void main(String[] args) {
+		
+		  Product product= new Product();
+
+          // classname variablename = new classname();
+		  
+		    
+	}
+}
+
+
+Note: Using Constructor, we cam also initialize any values at the time of object creation.
+
+We can categorize Constructors into 2 types. 
+
+1. Non Parameterized Constructor 
+
+Constructor without any parameters is considered as Non Parameterized Constructor and 
+the main purpose is just constructing an object.
+
+2. Parameterized Constructor
+
+Constructor with parameters is considered as Parameterized Constructor and we pass 
+the arguments to the constructor at the time of object creation due to which the 
+initialization of the object variables happen along with object creation.
+
+
+
+
+class Customer{
+	
+	  String name;
+	  String custId; 
+	  long accountNumber;
+	  long accountBalance;
+	public Customer(String name, String custId, long accountNumber, long accountBalance) {
+		this.name = name;
+		this.custId = custId;
+		this.accountNumber = accountNumber;
+		this.accountBalance = accountBalance;
+	}
+	  
+//	  Customer(String nameParam, String custIdParam, long accountNumberParam,long accountBalanceParam){
+//		  
+//		    this.name = nameParam;
+//		    this.custId = custIdParam;
+//		    this.accountNumber = accountNumberParam;
+//		    this.accountBalance = accountBalanceParam;
+//		  
+//	  }
+	  
+	  
+	
+}
+
+
+public class ParameterizedConstructorDemo {
+
+	 public static void main(String[] args) {
+		Customer customer = new Customer("Kiran","CSKHFJF12344",9899999L,80000L); 
+		
+		System.out.println(customer.name);
+		System.out.println(customer.custId);
+		
+	}
+}
+
+Constructor Inheritance:
+
+
+
+class A{
+	
+	  A(){
+		  System.out.println("A() constructor");
+	  }
+}
+class B extends A{
+	
+	 B(){
+		  System.out.println("B() constructor");
+	  }
+}
+	
+
+
+public class ConstructorInheritance {
+
+	 public static void main(String[] args) {
+		B bb= new B();
+		
+	}
+}
+
+
+

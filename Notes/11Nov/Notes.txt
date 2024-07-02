@@ -1,0 +1,147 @@
+In Java, Constructors cannot be inherited instead a super class constructor 
+is always called by the sub class constructor by default when ever there is 
+inhertiance relationship between them.
+
+
+
+class A{
+	
+	  A(){
+		  System.out.println("A() constructor");
+	  }
+}
+class B extends A{
+	
+	 B(){
+		
+		  System.out.println("B() constructor");
+	  }
+}
+	
+
+
+public class ConstructorInheritance {
+
+	 public static void main(String[] args) {
+		B bb= new B();
+		
+	}
+}
+
+Polymorphism: 
+
+Poly means many and morphism means forms. 
+
+Polymorphism means many / multiple forms. 
+
+It is a process where an entity (method) provides different functionalities based 
+on different inputs. 
+
+Polymorphism can be implemented using method overloading and method overiding. 
+
+Method Overloading: 
+
+A method should follow the below rules to be overloaded. 
+
+1. The method name must be same.
+2. There should be a difference in number of arguments or type of arguments.
+
+
+
+
+class Calc{
+	
+	   void add(int a, int b) {
+		   System.out.println(a+b); // 30
+	   }
+	   
+	   void add(int a, int b, int c) {
+		   System.out.println(a+b+c);   // 60
+	   }
+}
+
+public class MethodOverloadingDemo {
+
+	 public static void main(String[] args) {
+		Calc calc = new Calc();
+		calc.add(10,20);
+		calc.add(10,20,30);
+		calc.add(10, 9);
+	}
+}
+
+
+Problem Statement: 
+
+Implement a simple payment application that accepts different modes of payment. 
+
+
+
+class CashOnDelivery{
+	 String houseNumber; 
+	 String landMark;
+	 String area;
+	 String city;
+	public CashOnDelivery(String houseNumber, String landMark, String area, String city) {
+		this.houseNumber = houseNumber;
+		this.landMark = landMark;
+		this.area = area;
+		this.city = city;
+	}	
+	
+	 public void showDetails() {
+		 System.out.println( this.houseNumber + "\t"+ this.landMark+"\t"+ this.area+"\t"+ this.city);
+	 }
+}
+class CreditCard{
+	 String nameOnTheCard; 
+	 long accountNumber; 
+	 int cvv;
+	public CreditCard(String nameOnTheCard, long accountNumber, int cvv) {
+		
+		this.nameOnTheCard = nameOnTheCard;
+		this.accountNumber = accountNumber;
+		this.cvv = cvv;
+	} 
+	public void showDetails() {
+		 System.out.println( this.nameOnTheCard + "\t"+ this.accountNumber+"\t"+ this.cvv);
+	 }
+	 
+}
+class UPI{
+	 long mobileNumber;
+
+	public UPI(long mobileNumber) {
+		super();
+		this.mobileNumber = mobileNumber;
+	} 
+	public void showDetails() {
+		 System.out.println( this.mobileNumber);
+	 }
+}
+
+class Payment{
+	 void pay(CashOnDelivery cod){
+		   cod.showDetails();
+		   // logic to process payment
+	  }
+	 void pay(UPI upi) {
+		  upi.showDetails();
+	 }
+	 void pay(CreditCard cc) {
+		    cc.showDetails();
+	 }
+}
+public class PaymentDemo {
+	
+	public static void main(String[] args) {
+		CashOnDelivery cashOnDelivery = new CashOnDelivery("787888/12s", "near temple", "Hitech city", "Hyderabad");
+		Payment payment = new Payment(); 
+		//payment.pay(cashOnDelivery);
+		UPI upi= new UPI(909090909091L);
+		payment.pay(upi);
+		
+	}
+
+}
+

@@ -1,0 +1,78 @@
+Exception Handling: 
+
+Any runtime error is considered as an exception. whenever an exception occurs, the application crashes.
+
+To avoid application crash, we need to skip the part of the code that raises an error.
+
+Exception Handling is the process of skipping the code that raised the error and continue the flow of the 
+execution. 
+
+
+public class BasicExceptionDemo {
+	public static void main(String[] args) {
+		
+		
+		  String arr[] = {"user1","user2","user3"};
+		   String username= "kiran"; 
+		   try {
+			   System.out.println(arr[3]);
+		   }catch(Exception e) {
+			    System.out.println(e);
+		   }
+		   System.out.println(username);
+		   
+		   username = username.concat("@gmail.com"); 
+		   
+		   System.out.println(username);
+	}
+
+}
+
+
+We use try and catch blocks to handle exceptions. 
+
+Exception Hierarchy: 
+
+Ref: https://www.google.com/search?q=exception+hierarchy+in+java&sca_esv=584157642&rlz=1C1CHZN_enIN1032IN1032&tbm=isch&source=lnms&sa=X&ved=2ahUKEwiekMGggdSCAxVkSGwGHahpBcwQ_AUoAXoECAEQAw&biw=1536&bih=739&dpr=1.25#imgrc=QNDjm7DoI-ExQM 
+
+Checked and Unchecked Exceptions: 
+
+
+An exception that is checked at the compilation time by the compiler is known as 
+checked exception. 
+
+Ex: 
+
+1. IOException
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class CheckedExceptionDemo {
+	
+	public static void main(String[] args) {
+		
+		BufferedReader br= new BufferedReader(new InputStreamReader(System.in));
+		
+		System.out.println("Enter your name");
+		
+		try {
+		 String name= br.readLine();
+		 System.out.println("entered name:"+ name);
+		}
+		catch(IOException e) {
+			  System.out.println(e);
+		}
+		
+		
+	}
+
+}
+
+
+2. 
+
+
+
+
